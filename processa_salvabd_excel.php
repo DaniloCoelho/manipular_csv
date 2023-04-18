@@ -9,7 +9,8 @@ if($arquivo['type'] == "text/csv"){
     $dados_arquivos = fopen($arquivo['tmp_name'] , "r");
 
     var_dump($dados_arquivos);
-    
+    $linhas_importadas =0;
+    $linhas_nao_importadas = 0;
     //Ler linha por linha
     while($linha = fgetcsv($dados_arquivos, 1000 , ";")){
         //var_dump($linha);
@@ -31,6 +32,11 @@ if($arquivo['type'] == "text/csv"){
         $query->bindParam('email' , $linha[2] ,PDO::PARAM_STR);
         $query->execute();
        
+        if($query->rowCount()){
+            $linhas_importadas++;
+        }else{
+            $linhas_nao_importadas++;
+        }
 
     }
 

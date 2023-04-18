@@ -19,7 +19,7 @@
     
     <h3>Ler excel .csv e exibir</h3>
 
-    <form action="processa_salvabd_excel.php" method="post" enctype="multipart/form-data">
+    <form action="processa_salvabd_excel.php" method="post" enctype="multipart/form-data" accept="text/csv">
         <label for=""></label>
         <input type="file" name="arquivo" id="arquivo"><br><br>
         <input type="submit" value="Enviar">
